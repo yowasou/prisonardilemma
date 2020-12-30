@@ -13,6 +13,7 @@ default: &default
   username: user # 追加
   password: master # 追加
   host: localhost # 追加
+  pool: 5
 
 development:
   <<: *default
