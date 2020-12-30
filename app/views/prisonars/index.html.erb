@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Prisonars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Win count</th>
+      <th>Lose count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prisonars.each do |prisonar| %>
+      <tr>
+        <td><%= prisonar.name %></td>
+        <td><%= prisonar.code %></td>
+        <td><%= prisonar.win_count %></td>
+        <td><%= prisonar.lose_count %></td>
+        <td><%= link_to 'Show', prisonar %></td>
+        <td><%= link_to 'Edit', edit_prisonar_path(prisonar) %></td>
+        <td><%= link_to 'Destroy', prisonar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prisonar', new_prisonar_path %>

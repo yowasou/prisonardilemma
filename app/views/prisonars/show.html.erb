@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @prisonar.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @prisonar.code %>
+</p>
+
+<p>
+  <strong>Win count:</strong>
+  <%= @prisonar.win_count %>
+</p>
+
+<p>
+  <strong>Lose count:</strong>
+  <%= @prisonar.lose_count %>
+</p>
+
+<%= link_to 'Edit', edit_prisonar_path(@prisonar) %> |
+<%= link_to 'Back', prisonars_path %>

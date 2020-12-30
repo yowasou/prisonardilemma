@@ -1,0 +1,2 @@
+class Prisonar < ApplicationRecord
+end
