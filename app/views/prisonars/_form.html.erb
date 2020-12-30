@@ -1,3 +1,10 @@
+<script>
+  var editor = ace.edit("editor");
+  editor.setFontSize(14);
+  editor.getSession().setUseWrapMode(true);
+  editor.getSession().setTabSize(2);
+</script>
+
 <%= form_with(model: prisonar) do |form| %>
   <% if prisonar.errors.any? %>
     <div id="error_explanation">
@@ -15,10 +22,9 @@
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-
-  <div class="field">
+  <div class="field" id="editor">
     <%= form.label :code %>
-    <%= form.text_area :code %>
+    <%= form.text_area :code, id: "editor" %>
   </div>
 
   <div class="field">
