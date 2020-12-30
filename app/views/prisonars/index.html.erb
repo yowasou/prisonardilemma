@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Prisonars</h1>
-
+<h1><%= image_tag 'ptitle.png', :alt => '囚人のジレンマ' %></h1>しゅうじんのじれんま
+<br>
+<br>
+<%= link_to "このサイトは何？", "about.html" %>
+<br>
+<br>
+<%= button_to '収監(新規にコードを追加)', {:action => "new", :controller => 'prisonars'}, {:method => :get}  %>
+<br>
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Code</th>
-      <th>Win count</th>
-      <th>Lose count</th>
+      <th>収監番号</th>
+      <th>囚人者名</th>
+      <th>解答例</th>
+      <th>取引数</th>
+      <th>勝利数</th>
+      <th>敗北数</th>
+      <th>収監日</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,18 +25,15 @@
   <tbody>
     <% @prisonars.each do |prisonar| %>
       <tr>
+        <td><%= prisonar.id %></td>
         <td><%= prisonar.name %></td>
         <td><%= prisonar.code %></td>
+        <td><%= prisonar.win_count + prisonar.lose_count %></td>
         <td><%= prisonar.win_count %></td>
         <td><%= prisonar.lose_count %></td>
-        <td><%= link_to 'Show', prisonar %></td>
-        <td><%= link_to 'Edit', edit_prisonar_path(prisonar) %></td>
-        <td><%= link_to 'Destroy', prisonar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= prisonar.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M:%S') %></td>
+        <td><%= button_to 'コードを読む', {:action => "show", :controller => 'prisonars', :id => prisonar.id }, {:method => :get}  %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Prisonar', new_prisonar_path %>
